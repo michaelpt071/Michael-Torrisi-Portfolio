@@ -2,12 +2,13 @@ project:
   type: website
 
 website:
-  title: "Michael-Torrisi-Portfolio"
+  title: "Michael Torrisi's ePortfolio"
   navbar:
     left:
       - href: index.qmd
-        text: Home
-      - about.qmd
+        text: "Home"
+      - href: about.qmd
+        text: "About Me"
 
 format:
   html:
@@ -16,4 +17,3 @@ format:
     toc: true
 
 editor: visual
-
