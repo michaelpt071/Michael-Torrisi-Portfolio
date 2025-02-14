@@ -1,5 +1,15 @@
 ---
-title: "Michael-Torrisi-Portfolio"
+title: "Michael Torrisi"
+about:
+  template: jolla
+  image: profile.jpg
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/michael-torrisi-71b492351/
+    - icon: github
+      text: Github
+      href: https://github.com/michaelpt071/
 ---
 
 This is a Quarto website.
