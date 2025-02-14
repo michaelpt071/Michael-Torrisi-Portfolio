@@ -1,9 +1,22 @@
 ---
-title: "About"
+title: "About Me"
+about:
+  template: jolla
 ---
 
-About this site
+Michael is a hard-working, driven student researcher with 2+ years of research experience and excellent academic performance. He is eager to discover more about the ecosystems of our world and the interactions that drive them. He is currently working on a project with Dr. Salvador Jorgensen, Ph.D. to shed light on white shark ontogeny and prey interaction.
 
-```{r}
-1 + 1
-```
+## Education
+
+California State University, Monterey Bay \| Seaside, CA\
+Undergraduate, Studying for B.S. in Marine Science \| 2022 - present
+
+## Experience
+
+Project Shark Scar \| Undergraduate Data Analyst \| February 2023 - present
+
+## Research Disseminations
+
+Torrisi, M. “An Examination of the Ontogenetic Shift of White Shark Prey Preference from Fishes to Pinniped Marine Mammals” presented at the Research, Scholarship, & Creative Activity Spring Showcase at CSUMB. April 2024, Seaside, Oregon.
+
+Torrisi, M. “An Examination of the Ontogenetic Shift of White Shark Prey Preference from Fishes to Pinniped Marine Mammals” presented at the Western Society of the Naturalists Research Conference. November 2024, Portland, Oregon.
