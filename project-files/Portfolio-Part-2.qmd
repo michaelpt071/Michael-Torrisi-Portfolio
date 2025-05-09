@@ -118,22 +118,6 @@ write_csv(IMO_gold_counts, "data-clean/IMO_gold_counts.csv")
 
 Attempt to create a rough draft of at least one of your proposed visualizations.  Identify anything you want to modify in your visualization, but do not know how to do.
 
-```{r}
-IMO_data %>% 
-  group_by(country, year) %>% 
-  summarise(yearly_gold = n()) %>% 
-  filter(country %in% c("United States of America",
-                        "People's Republic of China",
-                        "Russian Federation")) %>% 
-  ggplot(aes(y = yearly_gold, x = year, color = country)) +
-  geom_line()+
-  facet_grid(rows = vars(country)) +
-  theme_light()
-
-
-# "Belgium", "Canada", "Denmark", "France", "Iceland", "Italy", "Luxembourg", "Netherlands", "Norway", "Portugal", "United Kingdom"
-```
-> I want to make this graph easier to read, but I'm not sure what direction to go in. I would like some feedback on what I could modify to make it more legible while losing as little data as possible.
 
 ```{r}
 IMO_data %>% 
@@ -174,8 +158,27 @@ IMO_data %>%
                                country == "Czechoslovakia" ~ "Europe",
                                country == "Union of Soviet Socialist Republics" ~ "Asia",
                                country == "German Democratic Republic" ~ "Asia",
+                               continent == "Oceania" ~ "Australia",
                               TRUE ~ continent)) %>% 
   filter(!is.na(continent)) %>% 
+  select(p1, p2, p3, p4, p5, p6, p7, year, continent) %>% 
+  group_by(continent, year) %>% 
+  summarise(p1 = mean(p1, na.rm = TRUE),
+            p2 = mean(p2, na.rm = TRUE),
+            p3 = mean(p3, na.rm = TRUE),
+            p4 = mean(p4, na.rm = TRUE),
+            p5 = mean(p5, na.rm = TRUE),
+            p6 = mean(p6, na.rm = TRUE)) %>% 
+  pivot_longer(cols = 3:8, names_to = "problem_num", values_to = "mean_score") %>% 
+  mutate(mean_score = case_when(mean_score == "NaN" ~ NA,
+                                TRUE ~ mean_score)) %>% 
+  filter(continent != "Oceania") %>% 
+  ggplot(aes(x = year, y = mean_score)) + 
+  geom_line() +
+  facet_grid(rows = vars(problem_num), cols = vars(continent)) +
+  labs(x = "Year",
+       y = "Mean Score") +
+  theme_light()
   
 ```
 
