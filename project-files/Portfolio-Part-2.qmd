@@ -52,6 +52,7 @@ Remember there needs to be at minimum 3 data transformations to meet the require
 
 ```{r}
 IMO_data <- read_csv("data-raw/individual_results_df.csv")
+country_continents <- read_csv("data-raw/list-of-countries-by-continent-2025.csv")
 ```
 ```{r}
 IMO_alltime_gold <- IMO_data %>% 
@@ -121,10 +122,60 @@ Attempt to create a rough draft of at least one of your proposed visualizations.
 IMO_data %>% 
   group_by(country, year) %>% 
   summarise(yearly_gold = n()) %>% 
-  filter(country %in% c("Belgium", "Canada", "Denmark", "France", "Iceland", "Italy", "Luxembourg", "Netherlands", "Norway", "Portugal", "United Kingdom", "United States of America")) %>% 
+  filter(country %in% c("United States of America",
+                        "People's Republic of China",
+                        "Russian Federation")) %>% 
   ggplot(aes(y = yearly_gold, x = year, color = country)) +
   geom_line()+
-  geom_point()+
-  theme_classic()
+  facet_grid(rows = vars(country)) +
+  theme_light()
+
+
+# "Belgium", "Canada", "Denmark", "France", "Iceland", "Italy", "Luxembourg", "Netherlands", "Norway", "Portugal", "United Kingdom"
 ```
 > I want to make this graph easier to read, but I'm not sure what direction to go in. I would like some feedback on what I could modify to make it more legible while losing as little data as possible.
+
+```{r}
+IMO_data %>% 
+  select(p1, p2, p3, p4, p5, p6, p7, year) %>% 
+  group_by(year) %>% 
+  summarise(p1 = mean(p1, na.rm = TRUE),
+            p2 = mean(p2, na.rm = TRUE),
+            p3 = mean(p3, na.rm = TRUE),
+            p4 = mean(p4, na.rm = TRUE),
+            p5 = mean(p5, na.rm = TRUE),
+            p6 = mean(p6, na.rm = TRUE)) %>% 
+  pivot_longer(cols = 2:7, names_to = "problem_num", values_to = "mean_score") %>% 
+  ggplot(aes(x = year, y = mean_score)) + 
+  geom_line() +
+  facet_grid(rows = vars(problem_num)) +
+  labs(x = "Year",
+       y = "Mean Score") +
+  theme_light()
+```
+
+
+```{r}
+IMO_data %>% 
+  left_join(country_continents, by = "country") %>% 
+  mutate(continent = case_when(country == "People's Republic of China" ~ "Asia",
+                               country == "United States of America" ~ "North America",
+                               country == "Republic of Korea" ~ "Asia",
+                               country == "Türkiye" ~ "Asia",
+                               country == "Islamic Republic of Iran" ~ "Asia",
+                               country == "Republic of Moldova" ~ "Europe",
+                               country == "Kosovo" ~ "Europe",
+                               country == "Russian Federation" ~ "Asia",
+                               country == "Democratic People's Republic of Korea" ~ "Asia",
+                               country == "Serbia and Montenegro" ~ "Europe",
+                               country == "Yugoslavia" ~ "Europe",
+                               country == "Turkish Republic of Northern Cyprus" ~ "Asia",
+                               country == "Yugoslavia" ~ "Europe",
+                               country == "Czechoslovakia" ~ "Europe",
+                               country == "Union of Soviet Socialist Republics" ~ "Asia",
+                               country == "German Democratic Republic" ~ "Asia",
+                              TRUE ~ continent)) %>% 
+  filter(!is.na(continent)) %>% 
+  
+```
+

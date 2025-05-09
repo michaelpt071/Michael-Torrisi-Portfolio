@@ -1,0 +1,235 @@
+"flagCode","country","continent","unMember"
+"AF","Afghanistan","Asia",true
+"AL","Albania","Europe",true
+"DZ","Algeria","Africa",true
+"AS","American Samoa","Oceania",false
+"AD","Andorra","Europe",true
+"AO","Angola","Africa",true
+"AI","Anguilla","North America",false
+"AG","Antigua and Barbuda","North America",true
+"AR","Argentina","South America",true
+"AM","Armenia","Asia",true
+"AW","Aruba","North America",false
+"AU","Australia","Oceania",true
+"AT","Austria","Europe",true
+"AZ","Azerbaijan","Asia",true
+"BS","Bahamas","North America",true
+"BH","Bahrain","Asia",true
+"BD","Bangladesh","Asia",true
+"BB","Barbados","North America",true
+"BY","Belarus","Europe",true
+"BE","Belgium","Europe",true
+"BZ","Belize","North America",true
+"BJ","Benin","Africa",true
+"BM","Bermuda","North America",false
+"BT","Bhutan","Asia",true
+"BO","Bolivia","South America",true
+"BA","Bosnia and Herzegovina","Europe",true
+"BW","Botswana","Africa",true
+"BR","Brazil","South America",true
+"VG","British Virgin Islands","North America",false
+"BN","Brunei","Asia",true
+"BG","Bulgaria","Europe",true
+"BF","Burkina Faso","Africa",true
+"BI","Burundi","Africa",true
+"KH","Cambodia","Asia",true
+"CM","Cameroon","Africa",true
+"CA","Canada","North America",true
+"CV","Cape Verde","Africa",true
+"KY","Cayman Islands","North America",false
+"CF","Central African Republic","Africa",true
+"TD","Chad","Africa",true
+"CL","Chile","South America",true
+"CN","China","Asia",true
+"CO","Colombia","South America",true
+"KM","Comoros","Africa",true
+"CK","Cook Islands","Oceania",false
+"CR","Costa Rica","North America",true
+"HR","Croatia","Europe",true
+"CU","Cuba","North America",true
+"CW","Curacao","North America",false
+"CY","Cyprus","Europe",true
+"CZ","Czech Republic","Europe",true
+"DK","Denmark","Europe",true
+"DJ","Djibouti","Africa",true
+"DM","Dominica","North America",true
+"DO","Dominican Republic","North America",true
+"CD","DR Congo","Africa",true
+"EC","Ecuador","South America",true
+"EG","Egypt","Africa",true
+"SV","El Salvador","North America",true
+"GQ","Equatorial Guinea","Africa",true
+"ER","Eritrea","Africa",true
+"EE","Estonia","Europe",true
+"SZ","Eswatini","Africa",true
+"ET","Ethiopia","Africa",true
+"FK","Falkland Islands","South America",false
+"FO","Faroe Islands","Europe",false
+"FJ","Fiji","Oceania",true
+"FI","Finland","Europe",true
+"FR","France","Europe",true
+"GF","French Guiana","South America",false
+"PF","French Polynesia","Oceania",false
+"GA","Gabon","Africa",true
+"GM","Gambia","Africa",true
+"GE","Georgia","Asia",true
+"DE","Germany","Europe",true
+"GH","Ghana","Africa",true
+"GI","Gibraltar","Europe",false
+"GR","Greece","Europe",true
+"GL","Greenland","North America",false
+"GD","Grenada","North America",true
+"GP","Guadeloupe","North America",false
+"GU","Guam","Oceania",false
+"GT","Guatemala","North America",true
+"GG","Guernsey","Europe",false
+"GN","Guinea","Africa",true
+"GW","Guinea-Bissau","Africa",true
+"GY","Guyana","South America",true
+"HT","Haiti","North America",true
+"HN","Honduras","North America",true
+"HK","Hong Kong","Asia",false
+"HU","Hungary","Europe",true
+"IS","Iceland","Europe",true
+"IN","India","Asia",true
+"ID","Indonesia","Asia",true
+"IR","Iran","Asia",true
+"IQ","Iraq","Asia",true
+"IE","Ireland","Europe",true
+"IM","Isle of Man","Europe",false
+"IL","Israel","Asia",true
+"IT","Italy","Europe",true
+"CI","Ivory Coast","Africa",true
+"JM","Jamaica","North America",true
+"JP","Japan","Asia",true
+"JE","Jersey","Europe",false
+"JO","Jordan","Asia",true
+"KZ","Kazakhstan","Asia",true
+"KE","Kenya","Africa",true
+"KI","Kiribati","Oceania",true
+"KW","Kuwait","Asia",true
+"KG","Kyrgyzstan","Asia",true
+"LA","Laos","Asia",true
+"LV","Latvia","Europe",true
+"LB","Lebanon","Asia",true
+"LS","Lesotho","Africa",true
+"LR","Liberia","Africa",true
+"LY","Libya","Africa",true
+"LI","Liechtenstein","Europe",true
+"LT","Lithuania","Europe",true
+"LU","Luxembourg","Europe",true
+"MO","Macau","Asia",false
+"MG","Madagascar","Africa",true
+"MW","Malawi","Africa",true
+"MY","Malaysia","Asia",true
+"MV","Maldives","Asia",true
+"ML","Mali","Africa",true
+"MT","Malta","Europe",true
+"MH","Marshall Islands","Oceania",true
+"MQ","Martinique","North America",false
+"MR","Mauritania","Africa",true
+"MU","Mauritius","Africa",true
+"YT","Mayotte","Africa",false
+"MX","Mexico","North America",true
+"FM","Micronesia","Oceania",true
+"MD","Moldova","Europe",true
+"MC","Monaco","Europe",true
+"MN","Mongolia","Asia",true
+"ME","Montenegro","Europe",true
+"MS","Montserrat","North America",false
+"MA","Morocco","Africa",true
+"MZ","Mozambique","Africa",true
+"MM","Myanmar","Asia",true
+"NA","Namibia","Africa",true
+"NR","Nauru","Oceania",true
+"NP","Nepal","Asia",true
+"NL","Netherlands","Europe",true
+"NC","New Caledonia","Oceania",false
+"NZ","New Zealand","Oceania",true
+"NI","Nicaragua","North America",true
+"NE","Niger","Africa",true
+"NG","Nigeria","Africa",true
+"NU","Niue","Oceania",false
+"KP","North Korea","Asia",true
+"MK","North Macedonia","Europe",true
+"MP","Northern Mariana Islands","Oceania",false
+"NO","Norway","Europe",true
+"OM","Oman","Asia",true
+"PK","Pakistan","Asia",true
+"PW","Palau","Oceania",true
+"PS","Palestine","Asia",true
+"PA","Panama","North America",true
+"PG","Papua New Guinea","Oceania",true
+"PY","Paraguay","South America",true
+"PE","Peru","South America",true
+"PH","Philippines","Asia",true
+"PL","Poland","Europe",true
+"PT","Portugal","Europe",true
+"PR","Puerto Rico","North America",false
+"QA","Qatar","Asia",true
+"CG","Republic of the Congo","Africa",true
+"RE","Reunion","Africa",false
+"RO","Romania","Europe",true
+"RU","Russia","Asia, Europe",true
+"RW","Rwanda","Africa",true
+"BL","Saint Barthelemy","North America",false
+"KN","Saint Kitts and Nevis","North America",true
+"LC","Saint Lucia","North America",true
+"MF","Saint Martin","North America",false
+"PM","Saint Pierre and Miquelon","North America",false
+"VC","Saint Vincent and the Grenadines","North America",true
+"WS","Samoa","Oceania",true
+"SM","San Marino","Europe",true
+"ST","Sao Tome and Principe","Africa",true
+"SA","Saudi Arabia","Asia",true
+"SN","Senegal","Africa",true
+"RS","Serbia","Europe",true
+"SC","Seychelles","Africa",true
+"SL","Sierra Leone","Africa",true
+"SG","Singapore","Asia",true
+"SX","Sint Maarten","North America",false
+"SK","Slovakia","Europe",true
+"SI","Slovenia","Europe",true
+"SB","Solomon Islands","Oceania",true
+"SO","Somalia","Africa",true
+"ZA","South Africa","Africa",true
+"KR","South Korea","Asia",true
+"SS","South Sudan","Africa",true
+"ES","Spain","Europe",true
+"LK","Sri Lanka","Asia",true
+"SD","Sudan","Africa",true
+"SR","Suriname","South America",true
+"SE","Sweden","Europe",true
+"CH","Switzerland","Europe",true
+"SY","Syria","Asia",true
+"TW","Taiwan","Asia",false
+"TJ","Tajikistan","Asia",true
+"TZ","Tanzania","Africa",true
+"TH","Thailand","Asia",true
+"TL","Timor-Leste","Asia",true
+"TG","Togo","Africa",true
+"TK","Tokelau","Oceania",false
+"TO","Tonga","Oceania",true
+"TT","Trinidad and Tobago","North America",true
+"TN","Tunisia","Africa",true
+"TR","Turkey","Asia",true
+"TM","Turkmenistan","Asia",true
+"TC","Turks and Caicos Islands","North America",false
+"TV","Tuvalu","Oceania",true
+"UG","Uganda","Africa",true
+"UA","Ukraine","Europe",true
+"AE","United Arab Emirates","Asia",true
+"GB","United Kingdom","Europe",true
+"US","United States","North America",true
+"VI","United States Virgin Islands","North America",false
+"UY","Uruguay","South America",true
+"UZ","Uzbekistan","Asia",true
+"VU","Vanuatu","Oceania",true
+"VA","Vatican City","Europe",true
+"VE","Venezuela","South America",true
+"VN","Vietnam","Asia",true
+"WF","Wallis and Futuna","Oceania",false
+"EH","Western Sahara","Africa",false
+"YE","Yemen","Asia",true
+"ZM","Zambia","Africa",true
+"ZW","Zimbabwe","Africa",true
