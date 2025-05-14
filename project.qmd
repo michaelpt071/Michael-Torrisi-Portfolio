@@ -1,5 +1,5 @@
 ---
-title: "International Math Olympiad (IMO) Data Visualizations"
+title: "International Math Olympiad (IMO) Data Visualization Project"
 format: html
 execute: 
   echo: false
@@ -7,7 +7,6 @@ execute:
   message: false
 embed-resources: true
 ---
-
 
 ```{r}
 #| label: setup
