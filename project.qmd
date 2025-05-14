@@ -1,5 +1,5 @@
 ---
-title: "Project: International Math Olympiad Data Visualizations"
+title: "International Math Olympiad (IMO) Data Visualizations"
 format: html
 execute: 
   echo: false
@@ -17,10 +17,15 @@ library(purrr)
 ```
 # Data Description
 
+Data used in this project was sourced from the [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) Github repository. The specific data and follwing description used can be found here: 
+[2024-09-24: IMO Data](https://github.com/rfordatascience/tidytuesday/tree/main/data/2024/2024-09-24). 
+
+> The International Mathematical Olympiad (IMO) is the World Championship Mathematics Competition for High School students and is held annually in a different country. The first IMO was held in 1959 in Romania, with 7 countries participating. It has gradually expanded to over 100 countries from 5 continents. The competition consists of 6 problems and is held over two consecutive days with 3 problems each.
 
 
 # Data Cleaning
 
+> 
 
 ```{r}
 IMO_data <- read_csv("project-files/data-raw/individual_results_df.csv")
@@ -28,72 +33,7 @@ country_continents <- read_csv("project-files/data-raw/list-of-countries-by-cont
 ```
 
 ```{r}
-IMO_alltime_gold <- IMO_data %>% 
-  mutate(award = substring(award, 1, 4),
-         name_lenth = str_length(country)) %>% 
-  filter(award == "Gold" | award == "Bron" | award == "Silv") %>% 
-  filter(name_lenth > 3) %>% 
-  mutate(award = case_when(award == "Gold" ~ "Gold",
-                           award == "Silv" ~ "Silver",
-                           award == "Bron" ~ "Bronze")) %>% 
-  select(year, country, award) %>% 
-  group_by(country) %>% 
-  summarise(alltime_gold = n(), .groups = "drop") %>% 
-  arrange(desc(alltime_gold))
-```
-
-
-```{r}
-IMO_21stcentury_gold <- IMO_data %>% 
-  filter(year >= 2000) %>% 
-  mutate(award = substring(award, 1, 4),
-         name_lenth = str_length(country)) %>% 
-  filter(award == "Gold" | award == "Bron" | award == "Silv") %>% 
-  filter(name_lenth > 3) %>% 
-  mutate(award = case_when(award == "Gold" ~ "Gold",
-                           award == "Silv" ~ "Silver",
-                           award == "Bron" ~ "Bronze")) %>% 
-  select(year, country, award) %>% 
-  group_by(country) %>% 
-  summarise(century21_gold = n()) %>% 
-  arrange(desc(century21_gold))
-```
-
-```{r}
-IMO_20thcentury_gold <- IMO_data %>% 
-  filter(year < 2000) %>% 
-  mutate(award = substring(award, 1, 4),
-         name_lenth = str_length(country)) %>% 
-  filter(award == "Gold" | award == "Bron" | award == "Silv") %>% 
-  filter(name_lenth > 3) %>% 
-  mutate(award = case_when(award == "Gold" ~ "Gold",
-                           award == "Silv" ~ "Silver",
-                           award == "Bron" ~ "Bronze")) %>% 
-  select(year, country, award) %>% 
-  group_by(country) %>% 
-  summarise(century20_gold = n()) %>% 
-  arrange(desc(century20_gold))
-```
-
-```{r}
-IMO_gold_counts <- IMO_alltime_gold %>% 
-  full_join(IMO_20thcentury_gold, by = "country") %>% 
-  full_join(IMO_21stcentury_gold, by = "country") %>% 
-  mutate_if(is.integer, ~replace(., is.na(.), 0))
-```
-
-```{r}
-write_csv(IMO_gold_counts, "project-files/data-clean/IMO_gold_counts.csv")
-```
-
-# Visualization 1
-```{r}
-#| fig-cap: "This is a caption for the first visualization"
-#| fig-alt: "This is an alternative text for the first visualization"
-#| fig-width: 6
-#| fig-height: 4
-#| fig-align: center
-IMO_data %>% 
+fig_1_clean_data <- IMO_data %>% 
   select(p1, p2, p3, p4, p5, p6, p7, year) %>% 
   group_by(year) %>% 
   summarise(p1 = mean(p1, na.rm = TRUE),
@@ -102,23 +42,15 @@ IMO_data %>%
             p4 = mean(p4, na.rm = TRUE),
             p5 = mean(p5, na.rm = TRUE),
             p6 = mean(p6, na.rm = TRUE)) %>% 
-  pivot_longer(cols = 2:7, names_to = "problem_num", values_to = "mean_score") %>% 
-  ggplot(aes(x = year, y = mean_score)) + 
-  geom_line() +
-  facet_grid(rows = vars(problem_num)) +
-  labs(x = "Year",
-       y = "Mean Score") +
-  theme_light()
+  pivot_longer(cols = 2:7, names_to = "problem_num", values_to = "mean_score")
 ```
 
-# Visualization 2
 ```{r}
-#| fig-cap: "This is a caption for the second visualization"
-#| fig-alt: "This is an alternative text for the second visualization"
-#| fig-width: 6
-#| fig-height: 4
-#| fig-align: center
-IMO_data %>% 
+write_csv(fig_1_clean_data, "project-files/data-clean/fig_1_clean_data.csv")
+```
+
+```{r}
+fig_2_clean_data <- IMO_data %>% 
   left_join(country_continents, by = "country") %>% 
   mutate(continent = case_when(country == "People's Republic of China" ~ "Asia",
                                country == "United States of America" ~ "North America",
@@ -150,7 +82,44 @@ IMO_data %>%
   pivot_longer(cols = 3:8, names_to = "problem_num", values_to = "mean_score") %>% 
   mutate(mean_score = case_when(mean_score == "NaN" ~ NA,
                                 TRUE ~ mean_score)) %>% 
-  filter(continent != "Oceania") %>% 
+  filter(continent != "Oceania")
+```
+
+```{r}
+write_csv(fig_2_clean_data, "project-files/data-clean/fig_2_clean_data.csv")
+```
+
+
+# Visualization 1
+
+> Here is a description of the first visualization. I want to describe what the visualization shows to a general audience. I do not want to see any code or technical terms. I want to be able to read this and understand what the visualization shows. I also want to see a caption and alt text for the visualization. The caption should be a short description of the visualization and the alt text should be a longer description of the visualization. The alt text should be descriptive enough that someone who is blind could understand what the visualization shows.
+
+```{r}
+#| fig-cap: "Fig. 1: Yearly mean scores for each of the 6 International Math Olympiad questions. Each question is scored from 1 to 7 points. "
+#| fig-alt: "This is an alternative text for the first visualization"
+#| fig-width: 6
+#| fig-height: 4
+#| fig-align: center
+fig_1_clean_data %>% 
+  ggplot(aes(x = year, y = mean_score)) + 
+  geom_line() +
+  facet_grid(rows = vars(problem_num)) +
+  labs(x = "Year",
+       y = "Mean Score") +
+  theme_light()
+```
+
+# Visualization 2
+
+> Here is a description of the second visualization. I want to describe what the visualization shows to a general audience. I do not want to see any code or technical terms. I want to be able to read this and understand what the visualization shows. I also want to see a caption and alt text for the visualization. The caption should be a short description of the visualization and the alt text should be a longer description of the visualization. The alt text should be descriptive enough that someone who is blind could understand what the visualization shows.
+
+```{r}
+#| fig-cap: "Fig. 2: Yearly mean scores per continent for each of the 6 International Math Olympiad questions. Each question is scored from 1 to 7 points. "
+#| fig-alt: "This is an alternative text for the second visualization"
+#| fig-width: 6
+#| fig-height: 4
+#| fig-align: center
+fig_2_clean_data %>% 
   ggplot(aes(x = year, y = mean_score)) + 
   geom_line() +
   facet_grid(rows = vars(problem_num), cols = vars(continent)) +
