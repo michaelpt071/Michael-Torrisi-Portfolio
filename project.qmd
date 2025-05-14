@@ -1,7 +1,5 @@
 ---
-title: "Portfolio Project"
-about:
-  template: jolla
+title: "Project: International Math Olympiad Data Visualizations"
 format: html
 execute: 
   echo: false
@@ -11,19 +9,17 @@ embed-resources: true
 ---
 
 
-# Portfolio Project
-
 ```{r}
 #| label: setup
 #| include: false
 library(tidyverse)
 library(purrr)
 ```
-## Data Description
+# Data Description
 
 
 
-## Data Cleaning
+# Data Cleaning
 
 
 ```{r}
@@ -90,8 +86,13 @@ IMO_gold_counts <- IMO_alltime_gold %>%
 write_csv(IMO_gold_counts, "project-files/data-clean/IMO_gold_counts.csv")
 ```
 
-## Visualization 1
+# Visualization 1
 ```{r}
+#| fig-cap: "This is a caption for the first visualization"
+#| fig-alt: "This is an alternative text for the first visualization"
+#| fig-width: 6
+#| fig-height: 4
+#| fig-align: center
 IMO_data %>% 
   select(p1, p2, p3, p4, p5, p6, p7, year) %>% 
   group_by(year) %>% 
@@ -110,8 +111,13 @@ IMO_data %>%
   theme_light()
 ```
 
-## Visualization 2
+# Visualization 2
 ```{r}
+#| fig-cap: "This is a caption for the second visualization"
+#| fig-alt: "This is an alternative text for the second visualization"
+#| fig-width: 6
+#| fig-height: 4
+#| fig-align: center
 IMO_data %>% 
   left_join(country_continents, by = "country") %>% 
   mutate(continent = case_when(country == "People's Republic of China" ~ "Asia",
@@ -150,8 +156,7 @@ IMO_data %>%
   facet_grid(rows = vars(problem_num), cols = vars(continent)) +
   labs(x = "Year",
        y = "Mean Score") +
-  theme_light()
+  theme_light() +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1))
   
 ```
-
-

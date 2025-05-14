@@ -33,6 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -113,6 +114,7 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
+   
   <ul>
   <li><a href="#education" id="toc-education" class="nav-link active" data-scroll-target="#education">Education</a></li>
   <li><a href="#experience" id="toc-experience" class="nav-link" data-scroll-target="#experience">Experience</a></li>
@@ -122,42 +124,53 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<div class="quarto-about-jolla">
- <header id="title-block-header" class="quarto-title-block default">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">About Me</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+  
+    
   </div>
-</header><main class="content" id="quarto-document-content">
+  
+
+
+</header>
+
 
 <p>Michael is a hard-working, driven student researcher with 2+ years of research experience and excellent academic performance. He is eager to discover more about the ecosystems of our world and the interactions that drive them. He is currently working on a project with Dr.&nbsp;Salvador Jorgensen, Ph.D.&nbsp;to shed light on white shark ontogeny and prey interaction.</p>
 <section id="education" class="level2">
-<h2 data-anchor-id="education">Education</h2>
+<h2 class="anchored" data-anchor-id="education">Education</h2>
 <p>California State University, Monterey Bay | Seaside, CA<br>
 Undergraduate, Studying for B.S. in Marine Science | 2022 - present</p>
 </section>
 <section id="experience" class="level2">
-<h2 data-anchor-id="experience">Experience</h2>
+<h2 class="anchored" data-anchor-id="experience">Experience</h2>
 <p>Project Shark Scar | Undergraduate Data Analyst | February 2023 - present</p>
 </section>
 <section id="research-disseminations" class="level2">
-<h2 data-anchor-id="research-disseminations">Research Disseminations</h2>
+<h2 class="anchored" data-anchor-id="research-disseminations">Research Disseminations</h2>
 <p><strong>Torrisi, M.</strong>, Walter, A., Yee, K., Anderson, S.D., Jorgensen, S. “An Examination of the Ontogenetic Shift of White Shark Prey Preference from Fishes to Pinniped Marine Mammals” presented at the Research, Scholarship, &amp; Creative Activity Spring Showcase at CSUMB. April 2024, Seaside, California.</p>
 <p><strong>Torrisi, M.</strong>, Walter, A., Yee, K., Anderson, Andrzejaczek, S., Block, B.A., Chapple, T.K., DiGiacomo, A., Kanive, P.E., Jorgensen, S. “An Examination of the Ontogenetic Shift of White Shark Prey Preference from Fishes to Pinniped Marine Mammals” presented at the Western Society of the Naturalists Research Conference. November 2024, Portland, Oregon.</p>
 <p><strong>Torrisi, M.</strong>, Walter, A., Yee, K., Jorgensen, S. “When Dinner Fights Back: Inferring White Shark Behavioral Adaptations from Prey Handling Injuries” presented at the Research, Scholarship, &amp; Creative Activity Spring Showcase at CSUMB. April 2025, Seaside, California.</p>
 </section>
 <section id="honors-and-awards" class="level2">
-<h2 data-anchor-id="honors-and-awards">Honors and Awards</h2>
+<h2 class="anchored" data-anchor-id="honors-and-awards">Honors and Awards</h2>
 <p>CSU COAST &amp; Jim and Peggy Ryan Marine Science Undergraduate Research Award Recipient (Spring 2025)</p>
 <p>Undergraduate Research Opportunities Center (UROC) Researcher (Spring 2025)</p>
 <p>CSUMB Dean’s List (Fall 2022 - Spring 2025)</p>
 
 
 </section>
-</main>  
-</div>
- <!-- /main -->
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -178,6 +191,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
