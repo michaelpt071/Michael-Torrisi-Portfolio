@@ -2,18 +2,28 @@
 title: "Portfolio Project"
 about:
   template: jolla
+format: html
+execute: 
+  echo: false
+  warning: false
+  message: false
+embed-resources: true
 ---
 
 
-# TEMPLATE
+# Portfolio Project
 
 ```{r}
+#| label: setup
+#| include: false
 library(tidyverse)
 library(purrr)
 ```
+## Data Description
 
 
-## Cleaning
+
+## Data Cleaning
 
 
 ```{r}
@@ -80,7 +90,7 @@ IMO_gold_counts <- IMO_alltime_gold %>%
 write_csv(IMO_gold_counts, "project-files/data-clean/IMO_gold_counts.csv")
 ```
 
-## Vis 1
+## Visualization 1
 ```{r}
 IMO_data %>% 
   select(p1, p2, p3, p4, p5, p6, p7, year) %>% 
@@ -100,7 +110,7 @@ IMO_data %>%
   theme_light()
 ```
 
-## Vis 2
+## Visualization 2
 ```{r}
 IMO_data %>% 
   left_join(country_continents, by = "country") %>% 
