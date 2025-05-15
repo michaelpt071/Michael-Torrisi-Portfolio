@@ -21,10 +21,12 @@ Data used in this project was sourced from the [Tidy Tuesday](https://github.com
 
 > The International Mathematical Olympiad (IMO) is the World Championship Mathematics Competition for High School students and is held annually in a different country. The first IMO was held in 1959 in Romania, with 7 countries participating. It has gradually expanded to over 100 countries from 5 continents. The competition consists of 6 problems and is held over two consecutive days with 3 problems each.
 
+Additionally, each question is scored out of 7 possible points, with 7 being a complete, clear, correct mathematical proof. As there are 6 questions, a perfect score is 42 points. These are extremely rare, with usually less than 3 of the 600 yearly contestants achieving such a score.
 
 # Data Cleaning
 
-> 
+In order to clean the raw data set and prepare it for visualization, there were several steps I needed to take. The raw data includes each individual contestant's names, awards, and individual ranking. This information was excluded from the clean data. Additionally, each score for each question needed to be averaged across each year. To do this, I grouped the data by year and contestants' continent of origin and took the mean of each score for each group. In order to group each country by the continent, I needed to join this data with another data set containing names and continents of countries. Some countries, however, were not named in this additional data, or were listed under alternative names (e.g. China vs People's Republic of China). These few inconsistencies were manually remedied.
+
 
 ```{r}
 IMO_data <- read_csv("project-files/data-raw/individual_results_df.csv")
@@ -34,13 +36,19 @@ country_continents <- read_csv("project-files/data-raw/list-of-countries-by-cont
 ```{r}
 fig_1_clean_data <- IMO_data %>% 
   select(p1, p2, p3, p4, p5, p6, p7, year) %>% 
+  rename(q1 = p1,
+         q2 = p2,
+         q3 = p3,
+         q4 = p4,
+         q5 = p5,
+         q6 = p6) %>% 
   group_by(year) %>% 
-  summarise(p1 = mean(p1, na.rm = TRUE),
-            p2 = mean(p2, na.rm = TRUE),
-            p3 = mean(p3, na.rm = TRUE),
-            p4 = mean(p4, na.rm = TRUE),
-            p5 = mean(p5, na.rm = TRUE),
-            p6 = mean(p6, na.rm = TRUE)) %>% 
+  summarise(q1 = mean(q1, na.rm = TRUE),
+            q2 = mean(q2, na.rm = TRUE),
+            q3 = mean(q3, na.rm = TRUE),
+            q4 = mean(q4, na.rm = TRUE),
+            q5 = mean(q5, na.rm = TRUE),
+            q6 = mean(q6, na.rm = TRUE)) %>% 
   pivot_longer(cols = 2:7, names_to = "problem_num", values_to = "mean_score")
 ```
 
@@ -71,13 +79,19 @@ fig_2_clean_data <- IMO_data %>%
                               TRUE ~ continent)) %>% 
   filter(!is.na(continent)) %>% 
   select(p1, p2, p3, p4, p5, p6, p7, year, continent) %>% 
+  rename(q1 = p1,
+         q2 = p2,
+         q3 = p3,
+         q4 = p4,
+         q5 = p5,
+         q6 = p6) %>% 
   group_by(continent, year) %>% 
-  summarise(p1 = mean(p1, na.rm = TRUE),
-            p2 = mean(p2, na.rm = TRUE),
-            p3 = mean(p3, na.rm = TRUE),
-            p4 = mean(p4, na.rm = TRUE),
-            p5 = mean(p5, na.rm = TRUE),
-            p6 = mean(p6, na.rm = TRUE)) %>% 
+  summarise(q1 = mean(q1, na.rm = TRUE),
+            q2 = mean(q2, na.rm = TRUE),
+            q3 = mean(q3, na.rm = TRUE),
+            q4 = mean(q4, na.rm = TRUE),
+            q5 = mean(q5, na.rm = TRUE),
+            q6 = mean(q6, na.rm = TRUE)) %>% 
   pivot_longer(cols = 3:8, names_to = "problem_num", values_to = "mean_score") %>% 
   mutate(mean_score = case_when(mean_score == "NaN" ~ NA,
                                 TRUE ~ mean_score)) %>% 
@@ -91,11 +105,11 @@ write_csv(fig_2_clean_data, "project-files/data-clean/fig_2_clean_data.csv")
 
 # Visualization 1
 
-> Here is a description of the first visualization. I want to describe what the visualization shows to a general audience. I do not want to see any code or technical terms. I want to be able to read this and understand what the visualization shows. I also want to see a caption and alt text for the visualization. The caption should be a short description of the visualization and the alt text should be a longer description of the visualization. The alt text should be descriptive enough that someone who is blind could understand what the visualization shows.
+This first visualization for this data shows the year-to-year mean scores for each of the six International Math Olympiad questions. This graph shows the mean score across all participating countries for each year of the competition. Overall, the scores for each question are generally consistent and near the midpoint of 3-4 points, with exceptions made for questions 3 and 6 being markedly lower in recent years.
 
 ```{r}
-#| fig-cap: "Fig. 1: Yearly mean scores for each of the 6 International Math Olympiad questions. Each question is scored from 1 to 7 points. "
-#| fig-alt: "This is an alternative text for the first visualization"
+#| fig-cap: "Fig. 1: Yearly mean scores for each of the 6 International Math Olympiad questions. Each question is scored out of 7 points."
+#| fig-alt: "This graph shows the yearly mean scores for each of the 6 International Math Olympiad questions. Each question is scored out of 7 points. This graph shows data from the first International Math Olympiad in 1959 through the most recent one in 2024."
 #| fig-width: 6
 #| fig-height: 4
 #| fig-align: center
@@ -110,11 +124,11 @@ fig_1_clean_data %>%
 
 # Visualization 2
 
-> Here is a description of the second visualization. I want to describe what the visualization shows to a general audience. I do not want to see any code or technical terms. I want to be able to read this and understand what the visualization shows. I also want to see a caption and alt text for the visualization. The caption should be a short description of the visualization and the alt text should be a longer description of the visualization. The alt text should be descriptive enough that someone who is blind could understand what the visualization shows.
+This second visualization for this data also shows the year-to-year mean scores for each of the six International Math Olympiad questions. However, this visualization differs from the first one in that it separates the mean scores for each question by which continent the contestant's country is located in. Overall, the scores for each continent are generally highly variable around midpoint of 3-4 points. As with the first visualization, mean scores for questions 3 and 6 have been markedly lower in recent years across all continents.
 
 ```{r}
-#| fig-cap: "Fig. 2: Yearly mean scores per continent for each of the 6 International Math Olympiad questions. Each question is scored from 1 to 7 points. "
-#| fig-alt: "This is an alternative text for the second visualization"
+#| fig-cap: "Fig. 2: Yearly mean scores per continent for each of the 6 International Math Olympiad questions. Each question is scored out of 7 points. "
+#| fig-alt: "This graph shows the yearly mean scores per continent for each of the 6 International Math Olympiad questions. Each question is scored out of 7 points. This graph shows data from the first International Math Olympiad in 1959 through the most recent one in 2024, and includes data from all continents except Antarctica."
 #| fig-width: 6
 #| fig-height: 4
 #| fig-align: center
