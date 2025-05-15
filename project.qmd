@@ -14,7 +14,7 @@ embed-resources: true
 library(tidyverse)
 library(purrr)
 ```
-# Data Description
+## Data Description
 
 Data used in this project was sourced from the [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) Github repository. The specific data and follwing description used can be found here: 
 [2024-09-24: IMO Data](https://github.com/rfordatascience/tidytuesday/tree/main/data/2024/2024-09-24). 
@@ -23,7 +23,7 @@ Data used in this project was sourced from the [Tidy Tuesday](https://github.com
 
 Additionally, each question is scored out of 7 possible points, with 7 being a complete, clear, correct mathematical proof. As there are 6 questions, a perfect score is 42 points. These are extremely rare, with usually less than 3 of the 600 yearly contestants achieving such a score.
 
-# Data Cleaning
+## Data Cleaning
 
 In order to clean the raw data set and prepare it for visualization, there were several steps I needed to take. The raw data includes each individual contestant's names, awards, and individual ranking. This information was excluded from the clean data. Additionally, each score for each question needed to be averaged across each year. To do this, I grouped the data by year and contestants' continent of origin and took the mean of each score for each group. In order to group each country by the continent, I needed to join this data with another data set containing names and continents of countries. Some countries, however, were not named in this additional data, or were listed under alternative names (e.g. China vs People's Republic of China). These few inconsistencies were manually remedied.
 
@@ -103,7 +103,7 @@ write_csv(fig_2_clean_data, "project-files/data-clean/fig_2_clean_data.csv")
 ```
 
 
-# Visualization 1
+## Visualization 1
 
 This first visualization for this data shows the year-to-year mean scores for each of the six International Math Olympiad questions. This graph shows the mean score across all participating countries for each year of the competition. Overall, the scores for each question are generally consistent and near the midpoint of 3-4 points, with exceptions made for questions 3 and 6 being markedly lower in recent years.
 
@@ -122,7 +122,7 @@ fig_1_clean_data %>%
   theme_light()
 ```
 
-# Visualization 2
+## Visualization 2
 
 This second visualization for this data also shows the year-to-year mean scores for each of the six International Math Olympiad questions. However, this visualization differs from the first one in that it separates the mean scores for each question by which continent the contestant's country is located in. Overall, the scores for each continent are generally highly variable around midpoint of 3-4 points. As with the first visualization, mean scores for questions 3 and 6 have been markedly lower in recent years across all continents.
 

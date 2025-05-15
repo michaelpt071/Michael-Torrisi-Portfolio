@@ -4787,20 +4787,20 @@ vertical-align: -.125em;
 </header>
 
 
-<section id="data-description" class="level1">
-<h1>Data Description</h1>
+<section id="data-description" class="level2">
+<h2 class="anchored" data-anchor-id="data-description">Data Description</h2>
 <p>Data used in this project was sourced from the <a href="https://github.com/rfordatascience/tidytuesday">Tidy Tuesday</a> Github repository. The specific data and follwing description used can be found here: <a href="https://github.com/rfordatascience/tidytuesday/tree/main/data/2024/2024-09-24">2024-09-24: IMO Data</a>.</p>
 <blockquote class="blockquote">
 <p>The International Mathematical Olympiad (IMO) is the World Championship Mathematics Competition for High School students and is held annually in a different country. The first IMO was held in 1959 in Romania, with 7 countries participating. It has gradually expanded to over 100 countries from 5 continents. The competition consists of 6 problems and is held over two consecutive days with 3 problems each.</p>
 </blockquote>
 <p>Additionally, each question is scored out of 7 possible points, with 7 being a complete, clear, correct mathematical proof. As there are 6 questions, a perfect score is 42 points. These are extremely rare, with usually less than 3 of the 600 yearly contestants achieving such a score.</p>
 </section>
-<section id="data-cleaning" class="level1">
-<h1>Data Cleaning</h1>
+<section id="data-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h2>
 <p>In order to clean the raw data set and prepare it for visualization, there were several steps I needed to take. The raw data includes each individual contestant’s names, awards, and individual ranking. This information was excluded from the clean data. Additionally, each score for each question needed to be averaged across each year. To do this, I grouped the data by year and contestants’ continent of origin and took the mean of each score for each group. In order to group each country by the continent, I needed to join this data with another data set containing names and continents of countries. Some countries, however, were not named in this additional data, or were listed under alternative names (e.g. China vs People’s Republic of China). These few inconsistencies were manually remedied.</p>
 </section>
-<section id="visualization-1" class="level1">
-<h1>Visualization 1</h1>
+<section id="visualization-1" class="level2">
+<h2 class="anchored" data-anchor-id="visualization-1">Visualization 1</h2>
 <p>This first visualization for this data shows the year-to-year mean scores for each of the six International Math Olympiad questions. This graph shows the mean score across all participating countries for each year of the competition. Overall, the scores for each question are generally consistent and near the midpoint of 3-4 points, with exceptions made for questions 3 and 6 being markedly lower in recent years.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -4813,8 +4813,8 @@ vertical-align: -.125em;
 </div>
 </div>
 </section>
-<section id="visualization-2" class="level1">
-<h1>Visualization 2</h1>
+<section id="visualization-2" class="level2">
+<h2 class="anchored" data-anchor-id="visualization-2">Visualization 2</h2>
 <p>This second visualization for this data also shows the year-to-year mean scores for each of the six International Math Olympiad questions. However, this visualization differs from the first one in that it separates the mean scores for each question by which continent the contestant’s country is located in. Overall, the scores for each continent are generally highly variable around midpoint of 3-4 points. As with the first visualization, mean scores for questions 3 and 6 have been markedly lower in recent years across all continents.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
