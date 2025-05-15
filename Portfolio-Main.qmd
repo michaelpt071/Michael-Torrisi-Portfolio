@@ -2,7 +2,7 @@
 title: "Michael Torrisi"
 about:
   template: jolla
-  image: Profile-pic-s25.jpg
+  image: Profile-pic-s25v2.png
   links:
     - icon: linkedin
       text: LinkedIn
@@ -12,4 +12,4 @@ about:
       href: https://github.com/michaelpt071/
 ---
 
-Michael Torrisi is an undergraduate student in his third year at [California State University, Monterey Bay](https://csumb.edu/marinescience/). He is currently studying for a Bachelor of Science degree in the Marine Science program. 
+Michael Torrisi is an undergraduate student in his third year at [California State University, Monterey Bay](https://csumb.edu/). He is currently studying for a Bachelor of Science degree in the [Marine Science program](https://csumb.edu/marinescience/). 
