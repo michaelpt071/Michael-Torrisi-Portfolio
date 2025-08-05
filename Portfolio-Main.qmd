@@ -2,7 +2,7 @@
 title: "Michael Torrisi"
 about:
   template: jolla
-  image: Profile-pic-s25v2.png
+  image: 20250531_094506.png
   links:
     - icon: linkedin
       text: LinkedIn
