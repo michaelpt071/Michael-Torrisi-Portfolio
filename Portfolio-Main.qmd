@@ -13,3 +13,5 @@ about:
 ---
 
 Michael Torrisi is an undergraduate student in his fourth year at [California State University, Monterey Bay](https://csumb.edu/). He is currently studying for a Bachelor of Science degree in the [Marine Science program](https://csumb.edu/marinescience/). 
+
+Contact: mtorrisi@csumb.edu
