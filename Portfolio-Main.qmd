@@ -12,6 +12,6 @@ about:
       href: https://github.com/michaelpt071/
 ---
 
-Michael Torrisi is an undergraduate student in his fourth year at [California State University, Monterey Bay](https://csumb.edu/). He is currently studying for a Bachelor of Science degree in the [Marine Science program](https://csumb.edu/marinescience/). 
+Michael Torrisi graduated with his B.S. in [Marine Science program](https://csumb.edu/marinescience/) from [California State University, Monterey Bay](https://csumb.edu/) in May of 2026. His undergraduate research focused on understanding white shark ontogeny and prey interaction along the central California coast.
 
 Contact: mtorrisi@csumb.edu
